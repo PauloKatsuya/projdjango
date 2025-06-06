@@ -1,0 +1,13 @@
+{% extends "template.html" %}
+
+
+{% block titulo %} Home {% endblock %}
+
+{% block conteudo %}
+
+<h2>Compra realizada com sucesso!</h2>
+<p>Você comprou <strong>{{ produto.nome }}</strong> por R$ {{ produto.preço }}.</p>
+<a href="{% url 'dashboard' %}">Voltar para o Dashboard</a>
+<p>Obrigado por sua compra!</p>
+
+{% endblock %}

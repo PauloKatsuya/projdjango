@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block titulo %}Sistema Web{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'template_base.css' %}" />
+    {% block style %}{% endblock %}
+</head>
+    {% if messages %}
+    <div class="alerts-container">
+        {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                <span class="alert-text">{{ message }}</span>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+<body>
+<header>
+<div class="logo-container">
+    <a href="{% url 'app' %}">
+        <img src="{% static 'logo-ldv.png' %}" alt="logo" class="logo-img"/>
+    </a>
+</div>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'exibirUsuarios' %}">Usuários</a></li>
+            <li><a href="{% url 'exibirProdutos' %}">Produtos</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        </ul>
+    </nav>
+
+<div>
+  {% if request.session.email %}
+    <a href="{% url 'logout' %}" class="header-buttonLink">Logout</a>
+  {% else %}
+    <a href="{% url 'login' %}" class="header-buttonLink">Entrar</a>
+    <a href="{% url 'addUsuario' %}" class="header-buttonLink cadastrar">Cadastrar</a>
+  {% endif %}
+</div>
+
+</header>
+
+<main>
+    {% block conteudo %}
+    {% endblock %}
+</main>
+
+<footer>
+    Todos os direitos reservados &copy; Paulo K - Desenvolvimento Web III
+</footer>
+</body>
+</html>

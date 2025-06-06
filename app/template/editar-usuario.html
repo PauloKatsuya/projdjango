@@ -1,0 +1,21 @@
+{% extends 'template.html' %}
+
+{% load static %}
+
+{% block style %} <link rel="stylesheet" href="{% static '_forms.css' %}"> {% endblock %}
+
+
+{% block 'titulo' %}
+    Editar usuario
+{% endblock %}
+
+{% block conteudo %}
+
+    <form method="POST">
+        {% csrf_token %} 
+        {{ form }}
+        <br>
+        <button type="submit" value="Editar" class="form-button">Editar</button>
+    </form>
+
+{% endblock %}

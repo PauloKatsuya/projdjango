@@ -1,0 +1,22 @@
+{% extends "template.html" %}
+
+{% block titulo %} Login {% endblock %}
+
+{% load static %}
+
+{% block style %} <link rel="stylesheet" href="{% static '_forms.css' %}"> {% endblock %}
+
+{% block conteudo %}
+
+    <h1>Login</h1>
+    <hr>
+    <form action="{% url 'login' %}" method="post" class="form">
+            <!-- campos renderizados -->
+            {% csrf_token %} <!-- NÃO ESQUECER, DARÁ ERRO SEM ISSO, SERVE PARA IMPEDIR SQL INJECTION -->
+            {{ form.as_p }}
+            <button type="submit" class="form-button">
+                Entrar
+            </button>
+            <p>Não tem cadastro? <a href="{% url 'addUsuario' %}">Cadastre-se</a></p>
+    </form>
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "template.html" %}
+{% load static %}
+
+{% block titulo %} Produtos {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'produto.css' %}">
+{% endblock %}
+{% block conteudo %}
+<h1>Produtos cadastrados</h1>
+<a href="{% url 'getProdutos' %}" target="_blank">Ver Produtos (API)</a>
+<div class="btn-container">
+  <a href="{% url 'addProduto' %}" class="btn-adicionar">Adicionar Produto</a>
+</div>
+
+<hr>
+
+<div class="card-container">
+  {% for produto in listaProdutos %}
+  <div class="card">
+{% if produto.imagem %}
+  <img class="card-img" src="{{ produto.imagem.url }}?v={{ produto.id }}" alt="{{ produto.nome }}">
+{% else %}
+  <img class="card-img" src="https://via.placeholder.com/250x180?text=Sem+Imagem" alt="Sem imagem">
+{% endif %}
+
+    <div class="card-body">
+      <div class="card-title">{{ produto.nome }}</div>
+      <div class="card-description">{{ produto.descricao }}</div>
+      <div class="card-price">R$ {{ produto.preço }}</div>
+      <div class="card-stock">Estoque: {{ produto.estoque }}</div>
+      <div class="card-actions">
+        <a href="{% url 'checkout' produto.id %}" class="comprar">Comprar</a>
+        <a href="{% url 'editarProduto' produto.id %}" class="edit">Editar</a>
+        <a href="{% url 'excluirProduto' produto.id %}" class="delete">Excluir</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<br>
+
+<h2>Produtos da Fake Store</h2>
+<div class="produtos-api">
+    {% for produto in produtosapi %}
+        <div class="card-produto">
+            <img src="{{ produto.image }}" alt="Imagem do produto">
+            <h3>{{ produto.title }}</h3>
+            <p><strong>Categoria: </strong> {{ produto.category }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+<!-- Modal ao clicar na imagem -->
+<div id="imgModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
+</div>
+
+<script>
+  // Pega o modal e o elemento da imagem dentro do modal
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("modalImg");
+  const closeBtn = document.querySelector(".modal .close");
+
+  // Quando clica em uma imagem do card, abre o modal com a imagem maior
+  document.querySelectorAll(".card-img").forEach(img => {
+    img.addEventListener("click", function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    });
+  });
+
+  // Fecha o modal ao clicar no botão "x"
+  closeBtn.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Fecha o modal ao clicar fora da imagem
+  modal.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+<!-- Fim do modal -->
+
+{% endblock %}

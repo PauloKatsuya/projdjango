@@ -1,0 +1,36 @@
+{% extends "template.html" %}
+
+{% block titulo %} Dashboard {% endblock %}
+
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'dashboard.css' %}">{% endblock %}
+
+{% block conteudo %}
+<div class="dashboard-container">
+    <h1 class="dashboard-title">Dashboard</h1>
+    <h2 class="dashboard-subtitle">Olá {{ usuario.nome }}!</h2>
+
+    <ul class="dashboard-list">
+        <li><strong>Email:</strong> {{ usuario.email }}</li>
+        <li><strong>CEP:</strong> {{ usuario.cep }}</li>
+        <li><strong>Número:</strong> {{ usuario.numero }}</li>
+        <li><strong>Logradouro:</strong> {{ usuario.logradouro }}</li>
+        <li><strong>Bairro:</strong> {{ usuario.bairro }}</li>
+        <li><strong>Cidade:</strong> {{ usuario.localidade }}</li>
+        <li><strong>Estado:</strong> {{ usuario.uf }}</li>
+    </ul>
+
+    <div class="dashboard-links">
+    <a href="{% url 'exibirProdutos' %}" class="dashboard-link">Gerenciar Produtos</a>
+    <a href="{% url 'addProduto' %}" class="dashboard-link">Adicionar Produtos</a>
+    <a href="{% url 'exibirUsuarios' %}" class="dashboard-link">Gerenciar Usuários</a>
+    <a href="{% url 'grafico' %}" class="dashboard-link">Ver Gráfico de Estoque</a>
+    <a href="{% url 'grafico_vendas' %}" class="dashboard-link">Ver Gráfico de Vendas</a>
+    
+
+
+</div>
+
+</div>
+{% endblock %}

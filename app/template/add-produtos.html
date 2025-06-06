@@ -1,0 +1,34 @@
+{% extends "template.html" %}
+
+{% block titulo %} Novo Produto {% endblock %}
+
+{% load static %}
+
+{% block style %} <link rel="stylesheet" href="{% static '_forms.css' %}"> {% endblock %}
+
+{% block conteudo %}
+
+    <h1>Novo Produto</h1>
+    <hr>
+    <form action="{% url 'addProduto' %}" method="post" class="form" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label for="{{ form.nome.id_for_label }}" class="form-label">Nome</label>
+    {{ form.nome }}
+
+    <label for="{{ form.descricao.id_for_label }}" class="form-label">Descrição</label>
+    {{ form.descricao }}
+
+    <label for="{{ form.preço.id_for_label }}" class="form-label">Preço</label>
+    {{ form.preço }}
+
+    <label for="{{ form.estoque.id_for_label }}" class="form-label">Estoque</label>
+    {{ form.estoque }}
+
+    <label for="{{ form.imagem.id_for_label }}" class="form-label">Imagem</label>
+    {{ form.imagem }}
+
+    <button type="submit" class="form-button">Cadastrar Produto</button>
+</form>
+
+{% endblock %}

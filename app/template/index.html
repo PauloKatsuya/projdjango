@@ -1,0 +1,19 @@
+{% extends "template.html" %}
+
+{% load static %}
+
+{% block style %}<link rel="stylesheet" href="{% static 'index.css' %}">{% endblock %}
+
+{% block titulo %} Home {% endblock %}
+
+{% block conteudo %}
+
+<h1>Local Discos de Vinil</h1>
+<h3>Sua Loja de Discos de Vinil Online</h3>
+<hr>
+<p>Relembre grandes clássicos da história da música!</p>
+<div class="logo-div">
+<img class="logo-home" src="{% static 'disco.jpg' %}" alt="">
+</div>
+
+{% endblock %}

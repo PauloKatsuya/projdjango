@@ -1,0 +1,16 @@
+{% extends "template.html" %}
+
+{% load static %}
+
+{% block titulo %} Home {% endblock %}
+
+{% block conteudo %}
+
+<h1>Usuários</h1>
+<ul>
+    {% for i in response %}
+        <li>{{ i.id }} - {{ i.nome }} ({{ i.email }})</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

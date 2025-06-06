@@ -1,0 +1,116 @@
+/* Container do formulário */
+.form {
+    max-width: 500px;
+    width: 90%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
+    background: #fafafa;
+    padding: 2rem 2.5rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Labels */
+.form-label {
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 0.3rem;
+    user-select: none;
+}
+
+/* Inputs */
+.form-input {
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 0.8rem;
+    border: 2px solid #ddd;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.form-input:hover {
+    border-color: #555;
+}
+
+.form-input:focus {
+    border-color: #0077ff;
+    box-shadow: 0 0 8px rgba(0, 119, 255, 0.3);
+}
+
+/* Botão */
+.form-button {
+    padding: 0.75rem 2rem;
+    background-color: #0077ff;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: center;
+    min-width: 200px;
+}
+
+.form-button:hover {
+    background-color: #005bbb;
+}
+
+/* Responsividade */
+@media (max-width: 400px) {
+    .form {
+        padding: 1.5rem 1.8rem;
+        font-size: 1rem;
+    }
+
+    .form-button {
+        width: 100%;
+        min-width: unset;
+    }
+}
+/* Esconde o input real (já no HTML inline) */
+/* Estiliza o label que age como botão */
+.form-file-label {
+    display: inline-block;
+    background-color: #0077ff;
+    color: white;
+    padding: 0.8rem 1.8rem;
+    font-weight: 700;
+    border-radius: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    margin-top: 0.3rem;
+}
+
+.form-file-label:hover {
+    background-color: #005bbb;
+}
+
+/* Texto do arquivo selecionado */
+.file-name {
+    display: block;
+    margin-top: 0.6rem;
+    font-style: italic;
+    color: #555;
+    font-size: 0.9rem;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsividade */
+@media (max-width: 400px) {
+    .form-file-label {
+        width: 100%;
+        text-align: center;
+    }
+}

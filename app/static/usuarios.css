@@ -1,0 +1,22 @@
+table {
+  border-collapse: collapse; /* para não duplicar as bordas */
+  width: 100%; /* opcional, para a tabela ocupar toda largura */
+}
+
+th, td {
+  padding: 12px 15px; /* aumenta o espaço interno das células */
+  border: 1px solid #ddd; /* borda leve para separar células */
+  text-align: left; /* alinha o texto à esquerda, opcional */
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9; /* linha com cor de fundo para facilitar leitura */
+}
+
+tr:hover {
+  background-color: #f1f1f1; /* efeito hover para destacar linha */
+}
+th {
+  background-color: #4CAF50; /* cor de fundo para cabeçalhos */
+  color: white; /* cor do texto dos cabeçalhos */
+}

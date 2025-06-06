@@ -1,0 +1,152 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    background: #f5f5f5;
+    color: #333;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #222;
+    color: white;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+/* Logo */
+header > div:first-child a img {
+    height: 40px;
+}
+
+/* Navegação */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Links de ação */
+header > div:last-child {
+    display: flex;
+    gap: 10px;
+}
+
+.header-buttonLink {
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+    background-color: #ffcc00;
+    color: #222;
+}
+
+.header-buttonLink.cadastrar {
+    background-color: transparent;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+}
+
+.header-buttonLink:hover {
+    background-color: #e6b800;
+    color: #222;
+}
+
+.header-buttonLink.cadastrar:hover {
+    background-color: #ffcc00;
+    color: #222;
+}
+
+/* Main e footer */
+footer {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 50px !important;
+    line-height: 50px !important;
+    text-align: center !important;
+    background-color: #222 !important;
+    color: white !important;
+    z-index: 1000 !important;
+    margin-top: 0 !important;
+}
+
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+    padding-bottom: 70px; /* espaço para o footer fixo */
+}
+
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 8px 0;
+        border-bottom: 1px solid #444;
+    }
+
+    header > div:last-child {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .header-buttonLink {
+        flex: 1 1 calc(50% - 10px);
+        text-align: center;
+        padding: 10px 0;
+    }
+}

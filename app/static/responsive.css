@@ -1,0 +1,10 @@
+@media screen and (max-width: 960px) {
+    header,
+    header nav ul{
+        display: flex;
+        flex-direction: column;
+    }
+    main{
+        margin-top: 30em;
+    }
+}
